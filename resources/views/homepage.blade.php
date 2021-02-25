@@ -18,5 +18,13 @@
         </article>
     @endforeach
 </div>
+<div>
+    <h2>Catégories des produits</h2>
+    <ul>
+    @foreach ($categories as $category)
+        <li>{{ $category->name }}</li>
+    @endforeach
+    </ul>
+</div>
 </body>
 </html>
