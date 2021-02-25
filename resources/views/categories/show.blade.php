@@ -21,13 +21,25 @@
     </style>
 </head>
 <body class="antialiased">
-<div class="relative flex items-top justify-center min-h-screen bg-gray-100 dark:bg-gray-900 sm:items-center sm:pt-0">
-    <article class="dark:text-white">
-        <header>
-            <h2>Catégorie : {{ $category->name }}</h2>
-        </header>
-    </article>
+<div class="dark:text-white dark:bg-gray-800 text-center">
+    <h2>{{ $category->name }}</h2>
+</div>
+<div class="dark:text-white dark:bg-gray-800 text-center">
+    @foreach ($products as $product)
+        <article>
+            <header>
+                <h3>{{ $product->title }}</h3>
+            </header>
+            <p>{{ $product->description }}</p>
+            <footer>
+                <ul>
+                    <li>Prix : {{ $product->price_ht }} €/HT</li>
+                    <li>Poids : {{ $product->weight }} g</li>
+                    <li>Stock : {{ $product->stock }}</li>
+                </ul>
+            </footer>
+        </article>
+    @endforeach
 </div>
 </body>
 </html>
-

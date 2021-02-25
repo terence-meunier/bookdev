@@ -21,7 +21,7 @@ class ProductSeeder extends Seeder
             'weight' => 666,
             'tva' => 20,
             'stock' => 140,
-            'categories_id' => 2
+            'category_id' => 2
         ]);
 
         DB::table('products')->insert([
@@ -31,7 +31,7 @@ class ProductSeeder extends Seeder
             'weight' => 666,
             'tva' => 20,
             'stock' => 65,
-            'categories_id' => 2
+            'category_id' => 2
         ]);
 
         DB::table('products')->insert([
@@ -41,7 +41,7 @@ class ProductSeeder extends Seeder
             'weight' => 555,
             'tva' => 20,
             'stock' => 23,
-            'categories_id' => 4
+            'category_id' => 4
         ]);
 
         DB::table('products')->insert([
@@ -51,7 +51,7 @@ class ProductSeeder extends Seeder
             'weight' => 555,
             'tva' => 20,
             'stock' => 23,
-            'categories_id' => 1
+            'category_id' => 1
         ]);
 
         DB::table('products')->insert([
@@ -61,7 +61,7 @@ class ProductSeeder extends Seeder
             'weight' => 34,
             'tva' => 19.6,
             'stock' => 34,
-            'categories_id' => 5
+            'category_id' => 5
         ]);
     }
 }
