@@ -21,8 +21,8 @@ class CreateProductsTable extends Migration
             $table->integer('weight');
             $table->decimal('tva');
             $table->integer('stock');
-            // $table->foreignId('categories_id');  Pour la suite clé étrangère
-
+            $table->foreignId('category_id');
+            $table->foreign('category_id')->references('id')->on('categories');
         });
     }
 

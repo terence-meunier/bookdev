@@ -21,21 +21,23 @@
     </style>
 </head>
 <body class="antialiased">
-<div class="relative flex justify-center dark:text-white dark:bg-gray-800">
-    <h2>Catégories des produits</h2>
-    <ul>
-        @foreach ($categories as $category)
-            <li><a href="{{ route('category.show', ['id' => $category->id]) }}">{{ $category->name }}</a></li>
-        @endforeach
-    </ul>
+<div class="dark:text-white dark:bg-gray-800 text-center">
+    <h2>{{ $category->name }}</h2>
 </div>
-<div class="relative items-center sm:justify-between ">
+<div class="dark:text-white dark:bg-gray-800 text-center">
     @foreach ($products as $product)
-        <article class="dark:text-white dark:bg-gray-800 text-center">
+        <article>
             <header>
-                <h2><a href="{{ route('product.show', ['id' => $product->id]) }}">{{ $product->title }}</a></h2>
+                <h3>{{ $product->title }}</h3>
             </header>
             <p>{{ $product->description }}</p>
+            <footer>
+                <ul>
+                    <li>Prix : {{ $product->price_ht }} €/HT</li>
+                    <li>Poids : {{ $product->weight }} g</li>
+                    <li>Stock : {{ $product->stock }}</li>
+                </ul>
+            </footer>
         </article>
     @endforeach
 </div>
