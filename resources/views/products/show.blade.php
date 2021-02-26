@@ -13,6 +13,7 @@
                 <li>Poids : {{ $product->weight }} g</li>
                 <li>Stock : {{ $product->stock }}</li>
             </ul>
+            <button class="button-cart" type="button">Ajouter au panier</button>
         </footer>
     </article>
 </div>
