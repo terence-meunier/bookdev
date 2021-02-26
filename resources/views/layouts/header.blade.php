@@ -19,10 +19,47 @@
         body {
             font-family: 'Nunito';
         }
+        .header_site {
+            display : flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .banniere {
+            background-color: #35495E;
+            width: 100%;
+            display : flex;
+            justify-content: center;
+        }
+        .logo {
+            margin-top: 10px;
+            margin-bottom : 10px;
+        }
+        nav {
+            background-color: #35495E;
+            width: 100%;
+        }
+        nav ul {
+            padding-inline-start: 0;
+            padding-left: 10px;
+            padding-right: 10px;
+            text-align: center;
+        }
+        nav ul li {
+            display : inline;
+            margin : 10px;
+        }
+        nav ul li a {
+           color: white;
+        }
+        nav ul li a:hover {
+            color: #FF6B00;
+        }
+        ul {
+            list-style-type: none;
+        }
     </style>
 </head>
-<header>
-    <div class="logo">Logo</div>
+<header class="header_site">
     <nav>
         <ul>
             <li><a href="{{route('home')}}">Accueil</a></li>
@@ -32,4 +69,7 @@
             <li><a href="#">Panier</a></li>
         </ul>
     </nav>
+    <div class="banniere">
+        <div class="logo"><img src="img/bookdev-logo.png" alt="logo bookdev"></div>
+    </div>
 </header>

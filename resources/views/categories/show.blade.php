@@ -1,4 +1,4 @@
-@include ('layouts.header');
+@include ('layouts.header')
 
 <body class="antialiased">
 <div class="dark:text-white dark:bg-gray-800 text-center">
@@ -8,7 +8,7 @@
     @foreach ($products as $product)
         <article>
             <header>
-                <h3>{{ $product->title }}</h3>
+                <h3><a href="{{ route('product.show', ['id' => $product->id]) }}">{{ $product->title }}</a></h3>
             </header>
             <p>{{ $product->description }}</p>
             <footer>
@@ -23,4 +23,4 @@
 </div>
 </body>
 
-@include ('layouts.footer');
+@include ('layouts.footer')

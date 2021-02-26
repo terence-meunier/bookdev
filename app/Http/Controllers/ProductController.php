@@ -11,6 +11,10 @@ class ProductController extends Controller
     public function show($id)
     {
         $product = Product::findOrfail($id);
-        return view('products.show', ['product' => $product]);
+        $title = $product->title . '- Bookdev';
+        $description = 'La catégorie blablabla';
+        return view('products.show', ['product' => $product,
+            'title' => $title,
+            'description' => $description]);
     }
 }

@@ -1,4 +1,4 @@
-@include ('layouts.header');
+@include ('layouts.header')
 
 <body class="antialiased">
 <div class="relative flex justify-center dark:text-white dark:bg-gray-800">
@@ -11,5 +11,5 @@
 </div>
 </body>
 
-@include ('layouts.footer');
+@include ('layouts.footer')
 
