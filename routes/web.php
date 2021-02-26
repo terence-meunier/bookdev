@@ -32,3 +32,4 @@ Route::get('/category', [CategoryController::class, 'index'])->name('category.in
 
 // Route pour le panier
 Route::get('/cart', [CartController::class, 'index'])->name('cart.index');
+Route::post('/cart/{product}', [CartController::class, 'store'])->name('cart.store');

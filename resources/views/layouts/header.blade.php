@@ -66,7 +66,7 @@
             <li><a href="{{route('category.index')}}">Catégories</a></li>
             <li><a href="#">Contact</a></li>
             <li><a href="#">Mon Compte</a></li>
-            <li><a href="#">Panier</a></li>
+            <li><a href="{{ route('cart.index') }}">Panier</a></li>
         </ul>
     </nav>
     <div class="banniere">
