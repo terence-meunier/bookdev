@@ -9,16 +9,7 @@
         @endforeach
     </ul>
 </div>
-<div class="relative items-center sm:justify-between ">
-    @foreach ($products as $product)
-        <article class="dark:text-white dark:bg-gray-800 text-center">
-            <header>
-                <h2><a href="{{ route('product.show', ['id' => $product->id]) }}">{{ $product->title }}</a></h2>
-            </header>
-            <p>{{ $product->description }}</p>
-        </article>
-    @endforeach
-</div>
 </body>
 
 @include ('layouts.footer');
+

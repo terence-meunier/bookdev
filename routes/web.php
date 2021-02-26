@@ -24,3 +24,6 @@ Route::get('/product/{id}', [ProductController::class, 'show'])->name('product.s
 
 // Route pour la catégorie selon l'id
 Route::get('/category/{id}', [CategoryController::class, 'show'])->name('category.show');
+
+// Route pour la catégorie selon l'id
+Route::get('/category', [CategoryController::class, 'index'])->name('category.index');
