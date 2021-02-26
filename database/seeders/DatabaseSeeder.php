@@ -18,7 +18,7 @@ class DatabaseSeeder extends Seeder
         // La fonction call() lance les fonctions run() dans toutes les classes Seeder spécifiés
         $this->call([
             CategorySeeder::class,
-            ProductSeeder::class
+            ProductSeeder::classstateless
         ]);
     }
 }
