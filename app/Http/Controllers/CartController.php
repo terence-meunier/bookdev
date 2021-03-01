@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Product;
+use App\Models\Cart;
 
 class CartController extends Controller
 {
@@ -12,7 +13,7 @@ class CartController extends Controller
         $title = 'Panier - Bookdev';
         $description = 'Le panier de notre boutique';
 
-        $cart = $this->initCart($request);
+        $cart = Cart::initCart($request);
 
         $products = [];
 
@@ -29,26 +30,23 @@ class CartController extends Controller
 
     public function store(Request $request, Product $product)
     {
-        $cart = $this->initCart($request);
-        $cart = $this->addCart($cart, $product, $request->input('qte'));
+        $cart = Cart::initCart($request);
+        $validated = $request->validate([
+            'qte' => 'integer|max:3'
+        ]);
+        $cart = Cart::addCart($cart, $product, $validated['qte']);
         $request->session()->put('cart', $cart);
         return redirect()->route('cart.index');
     }
 
-    private function initCart($request)
+    public function update(Request $request)
     {
-        $cart = $request->session()->get('cart', []);
-        return $cart;
-    }
-
-    private function addCart($cart, $product, $qte)
-    {
-        if (array_key_exists($product->id, $cart)) {
-            $cart[$product->id] += $qte;
-        } else {
-            $cart[$product->id] = $qte;
-        }
-
-        return $cart;
+        $cart = Cart::initCart($request);
+        $quantites = $request->except(['_token', '_method']);
+        $quantites_validated = validator($quantites,['integer','max:3']);
+        dd($quantites_validated);
+        $cart = Cart::updateCart($cart, $quantites);
+        $request->session()->put('cart', $cart);
+        return redirect()->route('cart.index');
     }
 }
