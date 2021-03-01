@@ -13,7 +13,16 @@
                 <li>Poids : {{ $product->weight }} g</li>
                 <li>Stock : {{ $product->stock }}</li>
             </ul>
-            <button class="button-cart" type="button">Ajouter au panier</button>
+            <form action="{{ route('cart.store', ['product' => $product]) }}" method="post">
+                @csrf
+                @method('POST')
+                <label for="qte">Quantité : </label>
+                <input type="number" id="qte" name="qte" value="1" min="1"/>
+                <input type="submit" value="Ajouter au panier"/>
+                @error('qte')
+                {{ $message }}
+                @enderror
+            </form>
         </footer>
     </article>
 </div>

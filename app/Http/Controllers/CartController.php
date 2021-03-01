@@ -4,27 +4,43 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Product;
+use App\Models\Cart;
 
 class CartController extends Controller
 {
-    public function index(Request $request) {
-        if ($request->session()->has('cart')) {
-            $cart = $request->session()->get('cart');
-        } else {
-            $cart = $request->session()->put('cart', [
-                '1' => 2,
-                '2' => 3,
-                '3' => 4
-            ]);
-        }
+    public function index(Request $request)
+    {
+        $title = 'Panier - Bookdev';
+        $description = 'Le panier de notre boutique';
+
+        $cart = Cart::initCart($request);
 
         $products = [];
 
-        foreach($cart as $id => $qte)
-        {
+        foreach ($cart as $id => $qte) {
             $products[$id] = Product::findOrFail($id);
         }
 
-        return view('cart.index', ['products' => $products]);
+        return view('cart.index', [
+            'title' => $title,
+            'description' => $description,
+            'products' => $products
+        ]);
+    }
+
+    public function store(Request $request, Product $product)
+    {
+        $cart = Cart::initCart($request);
+        $validated = $request->validate([
+            'qte' => 'integer'
+        ]);
+        $cart = Cart::addCart($cart, $product, $validated['qte']);
+        $request->session()->put('cart', $cart);
+        return redirect()->route('cart.index');
+    }
+
+    public function update(Request $request)
+    {
+
     }
 }
