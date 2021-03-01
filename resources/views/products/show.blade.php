@@ -19,6 +19,9 @@
                 <label for="qte">Quantité : </label>
                 <input type="number" id="qte" name="qte" value="1" min="1"/>
                 <input type="submit" value="Ajouter au panier"/>
+                @error('qte')
+                {{ $message }}
+                @enderror
             </form>
         </footer>
     </article>
