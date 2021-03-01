@@ -8,9 +8,8 @@ use App\Models\Product;
 
 class ProductController extends Controller
 {
-    public function show($id)
+    public function show(Product $product)
     {
-        $product = Product::findOrfail($id);
         $title = $product->title . '- Bookdev';
         $description = 'La catégorie blablabla';
         return view('products.show', ['product' => $product,

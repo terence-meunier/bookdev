@@ -13,7 +13,7 @@
     @foreach ($products as $product)
         <article class="dark:text-white dark:bg-gray-800 text-center">
             <header>
-                <h2><a href="{{ route('product.show', ['id' => $product->id]) }}">{{ $product->title }}</a></h2>
+                <h2><a href="{{ route('product.show', ['product' => $product]) }}">{{ $product->title }}</a></h2>
             </header>
             <p>{{ $product->description }}</p>
         </article>
