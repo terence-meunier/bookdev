@@ -9,7 +9,8 @@
         <p>{{ $product->description }}</p>
         <footer>
             <ul>
-                <li>Prix : {{ $product->price_ht }} €/HT</li>
+                <li>Prix HT : {{ $product->price_ht }} €/HT</li>
+                <li>Prix TTC : {{$product->priceTTC()}} €/TTC</li>
                 <li>Poids : {{ $product->weight }} g</li>
                 <li>Stock : {{ $product->stock }}</li>
             </ul>
