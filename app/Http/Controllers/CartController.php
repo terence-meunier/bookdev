@@ -32,7 +32,7 @@ class CartController extends Controller
     {
         $cart = Cart::initCart($request);
         $validated = $request->validate([
-            'qte' => 'integer|max:3'
+            'qte' => 'integer'
         ]);
         $cart = Cart::addCart($cart, $product, $validated['qte']);
         $request->session()->put('cart', $cart);
@@ -41,12 +41,6 @@ class CartController extends Controller
 
     public function update(Request $request)
     {
-        $cart = Cart::initCart($request);
-        $quantites = $request->except(['_token', '_method']);
-        $quantites_validated = validator($quantites,['integer','max:3']);
-        dd($quantites_validated);
-        $cart = Cart::updateCart($cart, $quantites);
-        $request->session()->put('cart', $cart);
-        return redirect()->route('cart.index');
+
     }
 }
