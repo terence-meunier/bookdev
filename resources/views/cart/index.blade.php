@@ -22,10 +22,6 @@
                     <td>{{ session('cart')[$id] }}</td>
                 </tr>
             @endforeach
-            <tr>
-                <td colspan="2"></td>
-                <td><input type="submit" value="Modifier les quantités"/></td>
-            </tr>
             </tbody>
         </table>
     </div>
