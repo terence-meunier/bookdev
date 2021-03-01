@@ -70,6 +70,6 @@
         </ul>
     </nav>
     <div class="banniere">
-        <div class="logo"><img src="{{asset('/img/bookdev-logo.png')}}" alt="logo bookdev"></div>
+        <div class="logo"><a href="{{route('home')}}"><img src="{{asset('/img/bookdev-logo.png')}}" alt="logo bookdev"></a></div>
     </div>
 </header>
