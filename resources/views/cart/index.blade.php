@@ -21,7 +21,14 @@
                     <td>{{ $id }}</td>
                     <td>{{ $product->title }}</td>
                     <td>{{$product->price_with_vat}}</td>
-                    <td>{{ session('cart')[$id] }}</td>
+                    <td>
+                        <form action="{{ route('cart.update', ['id' => $product->id]) }}" method="post">
+                            @csrf
+                            @method('PUT')
+                            <input type="number" name="quantity" value="{{ session('cart')[$id] }}" min="1"/>
+                            <input type="submit" value="Modifier le panier"/>
+                        </form>
+                    </td>
                     <td>
                         <form action="{{ route('cart.destroy', ['id' => $product->id]) }}" method="post">
                             @csrf

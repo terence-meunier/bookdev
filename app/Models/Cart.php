@@ -26,11 +26,9 @@ class Cart extends Model
         return $cart;
     }
 
-    public static function updateCart($cart, $quantities)
+    public static function updateCart($cart, $quantity, $id)
     {
-        foreach ($cart as $id => $qte) {
-            $cart[$id] = $quantities[$id];
-        }
+        $cart[$id] = $quantity;
         return $cart;
     }
 }

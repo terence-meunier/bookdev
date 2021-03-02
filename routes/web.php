@@ -34,3 +34,4 @@ Route::get('/category', [CategoryController::class, 'index'])->name('category.in
 Route::get('/cart', [CartController::class, 'index'])->name('cart.index');
 Route::post('/cart/{product}', [CartController::class, 'store'])->name('cart.store');
 Route::delete('/cart/{id}', [CartController::class, 'destroy'])->name('cart.destroy');
+Route::put('/cart/{id}', [CartController::class, 'update'])->name('cart.update');
