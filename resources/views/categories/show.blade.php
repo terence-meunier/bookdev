@@ -8,7 +8,7 @@
     @foreach ($products as $product)
         <article>
             <header>
-                <h3><a href="{{ route('product.show', ['id' => $product->id]) }}">{{ $product->title }}</a></h3>
+                <h3><a href="{{ route('product.show', ['product' => $product]) }}">{{ $product->title }}</a></h3>
             </header>
             <p>{{ $product->description }}</p>
             <footer>

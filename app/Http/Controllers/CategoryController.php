@@ -8,8 +8,7 @@ use Illuminate\Http\Request;
 
 class CategoryController extends Controller
 {
-    public function show($id) {
-        $category = Category::findOrFail($id);
+    public function show(Category $category) {
         $products = $category->products;
         $title = $category->name . ' - Bookdev';
         $description = 'La catégorie blablabla';
