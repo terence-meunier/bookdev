@@ -20,11 +20,11 @@ use App\Http\Controllers\CartController;
 // Route de la page d'accueil
 Route::get('/', [HomeController::class, 'index'])->name('home');
 
-// Route pour le produit selon l'id
-Route::get('/product/{id}', [ProductController::class, 'show'])->name('product.show');
+// Route pour le produit
+Route::resource('product', ProductController::class);
 
 // Route pour la catégorie selon l'id
-Route::get('/category/{id}', [CategoryController::class, 'show'])->name('category.show');
+Route::resource('category', CategoryController::class);
 
 
 // Route pour la catégorie selon l'id
@@ -33,3 +33,4 @@ Route::get('/category', [CategoryController::class, 'index'])->name('category.in
 // Route pour le panier
 Route::get('/cart', [CartController::class, 'index'])->name('cart.index');
 Route::post('/cart/{product}', [CartController::class, 'store'])->name('cart.store');
+Route::delete('/cart/{id}', [CartController::class, 'destroy'])->name('cart.destroy');

@@ -17,14 +17,19 @@ class CartController extends Controller
 
         $products = [];
 
+        $totalprice = 0;
+
+
         foreach ($cart as $id => $qte) {
             $products[$id] = Product::findOrFail($id);
+            $totalprice = $totalprice +($products[$id]->price_with_vat  * $qte);
         }
 
         return view('cart.index', [
             'title' => $title,
             'description' => $description,
-            'products' => $products
+            'products' => $products,
+            'totalprice' => $totalprice,
         ]);
     }
 
@@ -43,4 +48,10 @@ class CartController extends Controller
     {
 
     }
+
+    public function destroy(int $id)
+    {
+        
+    }
+
 }
