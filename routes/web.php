@@ -24,7 +24,7 @@ Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::resource('product', ProductController::class);
 
 // Route pour la catégorie selon l'id
-Route::get('/category/{id}', [CategoryController::class, 'show'])->name('category.show');
+Route::resource('category', CategoryController::class);
 
 
 // Route pour la catégorie selon l'id
