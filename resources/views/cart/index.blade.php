@@ -11,7 +11,7 @@
             <tr>
                 <td>#</td>
                 <td>Title</td>
-                <td>Prix TTC</td>
+                <td>Prix unitaire TTC</td>
                 <td>Qté</td>
             </tr>
             </thead>
@@ -26,6 +26,9 @@
             @endforeach
             </tbody>
         </table>
+        <div class="text-right">
+            <p><strong>Prix total TTC : {{$totalprice}}</strong></p>
+        </div>
     </div>
 @else
     <div>
