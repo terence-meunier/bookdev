@@ -22,6 +22,13 @@
                     <td>{{ $product->title }}</td>
                     <td>{{$product->price_with_vat}}</td>
                     <td>{{ session('cart')[$id] }}</td>
+                    <td>
+                        <form action="{{ route('cart.destroy', ['id' => $product->id]) }}" method="post">
+                            @csrf
+                            @method('DELETE')
+                            <input type="submit" value="Supprimer du panier"/>
+                        </form>
+                    </td>
                 </tr>
             @endforeach
             </tbody>
