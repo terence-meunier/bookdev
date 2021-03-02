@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Product;
 use App\Models\Cart;
+use phpDocumentor\Reflection\Types\Integer;
 
 class CartController extends Controller
 {
@@ -44,14 +45,20 @@ class CartController extends Controller
         return redirect()->route('cart.index');
     }
 
-    public function update(Request $request)
+    public function update(Request $request, int $id)
     {
-
+        $cart = Cart::initCart($request);
+        $validated = $request->validate([
+            'quantity' => 'integer'
+        ]);
+        $cart = Cart::updateCart($cart,$validated['quantity'], $id );
+        $request->session()->put('cart', $cart);
+        return redirect()->route('cart.index');
     }
 
     public function destroy(int $id)
     {
-        
+
     }
 
 }
