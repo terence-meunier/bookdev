@@ -49,4 +49,9 @@ class CartController extends Controller
 
     }
 
+    public function destroy(int $id)
+    {
+        
+    }
+
 }
