@@ -32,4 +32,5 @@ Route::get('/category', [CategoryController::class, 'index'])->name('category.in
 
 // Route pour le panier
 Route::get('/cart', [CartController::class, 'index'])->name('cart.index');
-Route::delete('/cart/{product}', [CartController::class, 'store'])->name('cart.store');
+Route::post('/cart/{product}', [CartController::class, 'store'])->name('cart.store');
+Route::delete('/cart/{id}', [CartController::class, 'destroy'])->name('cart.destroy');
