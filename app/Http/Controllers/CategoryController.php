@@ -10,7 +10,7 @@ class CategoryController extends Controller
 {
     public function show(Category $category) {
         $products = $category->products;
-        $title = $category->name . '- Bookdev';
+        $title = $category->name . ' - Bookdev';
         $description = 'La catégorie blablabla';
         return view('categories.show', [
             'products' => $products,

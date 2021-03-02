@@ -11,6 +11,8 @@ class ProductController extends Controller
     public function show(Product $product)
     {
         $title = $product->title . '- Bookdev';
+        $product = Product::findOrfail($id);
+        $title = $product->title . ' - Bookdev';
         $description = 'La catégorie blablabla';
         return view('products.show', ['product' => $product,
             'title' => $title,
