@@ -16,6 +16,7 @@
                 <h2><a href="{{ route('product.show', ['id' => $product->id]) }}">{{ $product->title }}</a></h2>
             </header>
             <p>{{ $product->description }}</p>
+            <p><strong>{{ $product->price_with_vat }} €</strong></p>
         </article>
     @endforeach
 </div>

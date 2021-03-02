@@ -11,6 +11,7 @@
             <tr>
                 <td>#</td>
                 <td>Title</td>
+                <td>Prix TTC</td>
                 <td>Qté</td>
             </tr>
             </thead>
@@ -19,6 +20,7 @@
                 <tr>
                     <td>{{ $id }}</td>
                     <td>{{ $product->title }}</td>
+                    <td>{{$product->price_with_vat}}</td>
                     <td>{{ session('cart')[$id] }}</td>
                 </tr>
             @endforeach
