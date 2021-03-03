@@ -447,7 +447,7 @@
             <li><a href="{{route('home')}}">Accueil</a></li>
             <li><a href="{{route('category.index')}}">Catégories</a></li>
             <li><a href="#">Contact</a></li>
-            <li><a href="#">Mon Compte
+            <li><a href="{{ route('dashboard') }}">Mon Compte
                     @auth
                         ({{Auth::user()->name}})
                     @endauth
