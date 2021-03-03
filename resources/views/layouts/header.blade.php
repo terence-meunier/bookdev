@@ -452,7 +452,13 @@
                         ({{Auth::user()->name}})
                     @endauth
                 </a></li>
-            <li><a href="{{ route('cart.index') }}">Panier</a></li>
+            <li>
+                <a href="{{ route('cart.index') }}">Panier
+                    @if(session('cart') !== null && !empty(session('cart')))
+                        ({{ array_sum(session('cart')) }})
+                    @endif
+                </a>
+            </li>
             @auth
                 <li>
                     <form action="{{ route('logout') }}" method="post">
@@ -466,8 +472,9 @@
             @endauth
         </ul>
     </nav>
-    <div class="banniere">
-        <div class="logo"><a href="{{route('home')}}"><img src="{{asset('/img/bookdev-logo.png')}}" alt="logo bookdev"></a>
+    <div class="flex sm:justify-between banniere">
+        <div class="logo">
+            <a href="{{route('home')}}"><img src="{{asset('/img/bookdev-logo.png')}}" alt="logo bookdev"></a>
         </div>
     </div>
 </header>
