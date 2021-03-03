@@ -68,6 +68,7 @@
             <li><a href="#">Mon Compte</a></li>
             <li><a href="{{ route('cart.index') }}">Panier</a></li>
             <li><a href="{{route('register')}}">s'enregistrer</a></li>
+            <li><a href="{{ route('login') }}">Se Connecter</a></li>
         </ul>
     </nav>
     <div class="banniere">
