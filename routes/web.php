@@ -1,10 +1,6 @@
 <?php
 
-use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\ProductController;
-use App\Http\Controllers\CategoryController;
-use App\Http\Controllers\CartController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,21 +13,13 @@ use App\Http\Controllers\CartController;
 |
 */
 
-// Route de la page d'accueil
-Route::get('/', [HomeController::class, 'index'])->name('home');
+Route::get('/', function () {
+    return view('welcome');
+});
 
-// Route pour le produit
-Route::resource('product', ProductController::class);
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->middleware(['auth'])->name('dashboard');
 
-// Route pour la catégorie selon l'id
-Route::resource('category', CategoryController::class);
-
-
-// Route pour la catégorie selon l'id
-Route::get('/category', [CategoryController::class, 'index'])->name('category.index');
-
-// Route pour le panier
-Route::get('/cart', [CartController::class, 'index'])->name('cart.index');
-Route::post('/cart/{product}', [CartController::class, 'store'])->name('cart.store');
-Route::delete('/cart/{id}', [CartController::class, 'destroy'])->name('cart.destroy');
-Route::put('/cart/{id}', [CartController::class, 'update'])->name('cart.update');
+require __DIR__.'/auth.php';
+require __DIR__.'/mesRoutes.php';
