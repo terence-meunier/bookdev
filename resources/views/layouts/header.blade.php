@@ -65,7 +65,11 @@
             <li><a href="{{route('home')}}">Accueil</a></li>
             <li><a href="{{route('category.index')}}">Catégories</a></li>
             <li><a href="#">Contact</a></li>
-            <li><a href="#">Mon Compte</a></li>
+            <li><a href="#">Mon Compte
+                    @auth
+                        ({{Auth::user()->name}})
+                    @endauth
+                </a></li>
             <li><a href="{{ route('cart.index') }}">Panier</a></li>
             <li><a href="{{route('register')}}">s'enregistrer</a></li>
             <li><a href="{{ route('login') }}">Se Connecter</a></li>
