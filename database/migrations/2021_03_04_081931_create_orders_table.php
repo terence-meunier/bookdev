@@ -15,7 +15,11 @@ class CreateOrdersTable extends Migration
     {
         Schema::create('orders', function (Blueprint $table) {
             $table->id();
-            $table->timestamps();
+            $table->dateTime('order_create');
+            $table->integer('number');
+            $table->dateTime('order_delivery');
+            $table->foreignId('users_id');
+            $table->foreign('users_id')->references('id')->on('users');
         });
     }
 
