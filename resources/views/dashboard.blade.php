@@ -11,9 +11,13 @@
                 <div class="grid p-6 border-b border-gray-200 place-items-center">
                     <a href="{{ route('home') }}"><img src="/img/bookdev-logo.png"/></a>
                 </div>
-                <div class="grid p-6 border-b border-gray-200 place-items-center">
-                    <a href="{{ route('home') }}"><button class="bg-white text-gray-900 hover:text-yellow-600 p-8 rounded-2xl">ENTRER SUR LE SITE</button></a>
-                </div>
+                @foreach($orders as $order)
+                    <div class="bg-gray-600 p-4 border">
+                        <h3><a href="{{ route('orders.show', ['order' => $order]) }}">Commande N°{{ $order->number }}</a></h3>
+                        <em>Date de la commande : {{ $order->order_create->format('d/m/Y') }}</em>
+                        <em>Date de la livraison : {{ $order->order_delivery->format('d/m/Y') }}</em>
+                    </div>
+                @endforeach
             </div>
         </div>
     </div>
