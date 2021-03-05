@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Order;
+use Illuminate\Support\Facades\Auth;
 
 class OrderController extends Controller
 {
@@ -16,7 +17,7 @@ class OrderController extends Controller
     {
         $title = 'Commande - Bookdev';
         $description = 'Vos commandes Bookdev';
-        $orders = Order::all();
+        $orders = Auth::user()->orders;
         return view('orders.index')
             ->with('orders', $orders)
             ->with('title', $title)
@@ -48,12 +49,13 @@ class OrderController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  Order  $order
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Order $order)
     {
-        //
+        return view('orders.show')
+            ->with('order', $order);
     }
 
     /**
