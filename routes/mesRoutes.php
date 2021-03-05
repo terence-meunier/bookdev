@@ -38,4 +38,4 @@ Route::post('/cart/{product}', [CartController::class, 'store'])->name('cart.sto
 Route::delete('/cart/{id}', [CartController::class, 'destroy'])->name('cart.destroy');
 Route::put('/cart/{id}', [CartController::class, 'update'])->name('cart.update');
 // Route qui crée directement toutes les routes pour les methodes du OrderController
-Route::resource('orders', OrderController::class);
+Route::resource('orders', OrderController::class)->middleware('auth');
