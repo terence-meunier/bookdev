@@ -450,11 +450,12 @@
             <li><a href="{{ route('dashboard') }}">Mon Compte
                     @auth
                         ({{Auth::user()->name}})
-                    @endauth
+
                 </a>
                 <ul>
                     <li><a href="{{ route('orders.index') }}">Mes commandes</a></li>
                 </ul>
+                    @endauth
             </li>
             <li>
                 <a href="{{ route('cart.index') }}">Panier
