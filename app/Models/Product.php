@@ -14,7 +14,6 @@ class Product extends Model
         return $this->belongsTo(Category::class);
     }
 
-
     /**
      * méthode qui retourne le prix ttc
      * @return float|int
