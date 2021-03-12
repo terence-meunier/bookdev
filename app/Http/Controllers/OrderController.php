@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\OrderHasProduct;
 use Illuminate\Http\Request;
 use App\Models\Order;
+use App\Models\Product;
 use Illuminate\Support\Facades\Auth;
 
 class OrderController extends Controller
@@ -43,7 +45,24 @@ class OrderController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        //Récupérer la variable de session
+        $cart = $request->session()->get('cart');
+        $order = new Order();
+        $order->number = random_int(1, 1000000);
+        $order->order_create = time();
+        $order->order_delivery = time();
+        $order->user_id = Auth::user()->id;
+        $order->save();
+        foreach ($cart as $id => $qty)
+        {
+            $orderHasProduct = new OrderHasProduct();
+            $orderHasProduct->order_id = $order->id;
+            $orderHasProduct->product_id = $id;
+            $orderHasProduct->quantity = $qty;
+            $orderHasProduct->save();
+        }
+        $request->session()->forget('cart');
+        return redirect()->route('home');
     }
 
     /**

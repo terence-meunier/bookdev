@@ -43,6 +43,12 @@
         <div class="text-right">
             <p><strong>Prix total TTC : {{$totalprice}}</strong></p>
         </div>
+        <div class="text-right">
+            <form action="{{ route('orders.store') }}" method="post">
+                @csrf
+                <input type="submit" value="Valider mon panier"/>
+            </form>
+        </div>
     </div>
 @else
     <div>
