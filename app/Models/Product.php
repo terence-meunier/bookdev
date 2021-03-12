@@ -14,6 +14,11 @@ class Product extends Model
         return $this->belongsTo(Category::class);
     }
 
+    public function orders_has_products()
+    {
+        return $this->hasMany(OrderHasProduct::class);
+    }
+
     /**
      * méthode qui retourne le prix ttc
      * @return float|int
