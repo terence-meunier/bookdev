@@ -77,6 +77,10 @@
             border-top-width: 1px
         }
 
+        .border {
+            border: 1px solid black;
+        }
+
         .flex {
             display: flex
         }

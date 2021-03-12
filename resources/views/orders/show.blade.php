@@ -13,4 +13,27 @@
         </ul>
     </footer>
 </article>
+<h3 class="dark:bg-gray-800 dark:text-white text-center">Récapitulatif de la commande</h3>
+<table width="100%" class="text-center border">
+    <thead>
+    <tr class="dark:bg-gray-800 dark:text-white">
+        <td>#</td>
+        <td>Produit</td>
+        <td>Prix unitaire TTC</td>
+        <td>Quantité</td>
+        <td>Prix Total TTC</td>
+    </tr>
+    </thead>
+    <tbody>
+    @foreach($order->orders_has_products as $line)
+        <tr>
+            <td>{{ $line->products->id }}</td>
+            <td>{{ $line->products->title }}</td>
+            <td>{{ $line->products->price_with_vat }}€</td>
+            <td>{{ $line->quantity }}</td>
+            <td>{{ $line->products->price_with_vat * $line->quantity }}€</td>
+        </tr>
+    @endforeach
+    </tbody>
+</table>
 @include ('layouts.footer')
