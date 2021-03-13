@@ -16,3 +16,7 @@ yarn-error.log
 .env.example
 supervisord.log
 supervisord.pid
+
+docker-compose.yml:Zone.Identifier
+
+*.Identifier
